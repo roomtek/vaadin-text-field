@@ -46,23 +46,31 @@ This program is available under Apache License Version 2.0, available at https:/
       :host {
         animation: 1ms vaadin-text-area-appear;
       }
+
+      .input-field-container {
+        display: flex;
+        position: relative;
+        height: 100%;
+      }
     </style>
 
     <div class="vaadin-text-area-container">
 
       <label part="label" on-click="focus" id="[[_labelId]]">[[label]]</label>
+      
+      <div class="input-field-container">
+        <div part="input-field">
 
-      <div part="input-field">
-
-        <slot name="prefix"></slot>
-
-        <slot name="textarea">
-          <textarea part="value"></textarea>
-        </slot>
-
-        <div part="clear-button" id="clearButton" role="button" aria-label="Clear"></div>
-        <slot name="suffix"></slot>
-
+          <slot name="prefix"></slot>
+  
+          <slot name="textarea">
+            <textarea part="value"></textarea>
+          </slot>
+  
+          <div part="clear-button" id="clearButton" role="button" aria-label="Clear"></div>
+          <slot name="suffix"></slot>
+  
+        </div>
       </div>
 
       <div part="error-message"
